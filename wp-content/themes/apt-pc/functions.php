@@ -265,3 +265,17 @@ function apt_tel_func($atts, $tel='') {
 }
 add_shortcode('apt_tel', 'apt_tel_func');
 
+function twentythirteen_widgets_init() {
+	register_sidebar( array(
+		'name'          => __( 'メインウィジェットエリア', 'twentythirteen' ),
+		'id'            => 'sidebar-1',
+		'description'   => __( 'サイドバーに表示されます。', 'twentythirteen' ),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+}
+add_action( 'widgets_init', 'twentythirteen_widgets_init' );
+
+add_editor_style('custom-editor-style.css');
