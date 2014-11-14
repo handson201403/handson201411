@@ -47,6 +47,22 @@ function apt_category_id($tax='category') {
   return $cat_id;  
 }
 
+function unregister_widgets(){
+    unregister_widget('WP_Widget_Pages');//固定ページ
+    unregister_widget('WP_Widget_Links');//リンク集
+    unregister_widget('WP_Widget_Search');//サイト内検索フォーム
+    unregister_widget('WP_Widget_Archives');//月別アーカイブ
+    unregister_widget('WP_Widget_Meta');//めた情報(login/outなど)
+    unregister_widget('WP_Widget_Calendar');//カレンダー
+    unregister_widget('WP_Widget_Categories');//カテゴリーリスト
+    unregister_widget('WP_Widget_Recent_Posts');//最近の投稿
+    unregister_widget('WP_Widget_Recent_Comments');//最近のコメント
+    unregister_widget('WP_Widget_RSS');//RSSフィード
+    unregister_widget('WP_Widget_Tag_Cloud');//タグクラウド
+    unregister_widget('WP_Nav_Menu_Widget');//ナビゲーションメニュー
+}
+add_action('widgets_init', 'unregister_widgets');
+
 // カテゴリ情報を取得する。
 function apt_category_info($tax='category') {
   global $post;
